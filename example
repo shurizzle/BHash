@@ -1,0 +1,27 @@
+#!/bin/bash
+
+. ./bhash.lib.sh
+
+hput PENIS ciao CIAO
+hput PENIS cazzo PENE
+hput PENIS PORCO\ DIO MADONNA\ ZOCCOLA
+hput PENIS XXX PORN
+echo -e "${PENIS[0]} -> ${PENIS[1]}"
+
+hput PENIS XXX FREE\ PORN
+echo -e "${PENIS[0]} -> ${PENIS[1]}\n"
+
+hkeys PENIS keys
+echo "KEYS:"
+for ((i=0; $i < ${#keys[*]}; i++)); do
+    echo "$i: ${keys[${i}]}"
+done
+
+hvalues PENIS values
+echo -e "\nVALUES:"
+for ((i=0; $i < ${#values[*]}; i++)); do
+    echo "$i: ${values[${i}]}"
+done
+
+hdel PENIS cazzo
+echo -e "\n${PENIS[0]} -> ${PENIS[1]}"
